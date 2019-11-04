@@ -16,6 +16,11 @@ public class userInFo {
     private String username = new String();
     private String userpassword = new String();
 
+    public userInFo(String username, String userpassword) {
+        this.username = username;
+        this.userpassword = userpassword;
+    }
+
     public String getusername() {
         return username;
     }
@@ -31,5 +36,10 @@ public class userInFo {
     public void setuserpassword(String userpassword) {
         this.userpassword = userpassword;
     }
+
+
+
+
+
 }
 
