@@ -13,7 +13,7 @@ public class bodyInFaImpl implements bodyInFa {
     @Override
     public userInFo userRegister(userInFo user) {
 
-        userInFo getuser = new userInFo();
+        userInFo getuser = new userInFo("sd","dsa");
         Scanner scan =new Scanner(System.in );
         System.out.print("pleasr cin you went name");
         getuser.setusername(scan.next());
