@@ -8,6 +8,8 @@ public class bodyInFaImpl implements bodyInFa {
     @Override
     public void userLogin(userInFo user) {
 
+
+
     }
 
     @Override

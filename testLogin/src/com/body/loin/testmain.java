@@ -3,8 +3,15 @@ package com.body.loin;/*
  *
  */
 
-public class testmain {
+import com.body.GUI.LoginGUI;
 
+public class testmain {
+    public static void main(String[] args){
+        LoginGUI login = new LoginGUI();
+        login.cansee();
+
+        LoginGUI login2 = new LoginGUI();
+    }
 
 
 
