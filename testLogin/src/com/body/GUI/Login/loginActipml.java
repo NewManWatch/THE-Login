@@ -1,21 +1,28 @@
-package com.body.loin;
-import java.util.Scanner;
-import java.awt.*;
-import java.awt.event.*;
+package com.body.GUI.Login;
+import com.body.GUI.*;
+import com.body.loin.userInFo;
+
 import javax.management.monitor.Monitor;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class LoginGUI {
-    public static void main(String ages[]){
-        JFrame frame = new JFrame("登录页面");/* 实例化窗体对象*/
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        LoIn(frame);
+public class loginActipml implements clientAct{
+    static JFrame frame;
+
+    @Override
+    public void state() {
 
     }
-    public static void LoIn(JFrame frame){
+
+    @Override
+    public void action(){
+
+        frame = new JFrame("登录页面");/* 实例化窗体对象*/
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel Login = new JPanel();
-        JTextField jPasswordField1 = new JTextField(30);
-        JPasswordField jPasswordField2 = new JPasswordField();
+        final JTextField jPasswordField1 = new JTextField(30);
+        final JPasswordField jPasswordField2 = new JPasswordField();
         jPasswordField2.setEchoChar('*');
         frame.setLayout(null);
         JButton LoginButtons = new JButton("登入");
@@ -34,17 +41,23 @@ public class LoginGUI {
 
             }
         };
-        LoginButtons.addActionListener(new ActionListener (){
+        LoginButtons.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e ) {
 
-               System.out.print(jPasswordField1.getText()+"\n"+jPasswordField2.getPassword()+"\n");//测试对name PASSWORK 的读取
-               //这里使用登录接口
+                System.out.print(jPasswordField1.getText());
+                System.out.print(jPasswordField2.getPassword());
+
+                userInFo nouser = new userInFo(jPasswordField1.getText(),String.valueOf(jPasswordField2.getPassword()));
+
+                //测试对name PASSWORK 的读取
+                //这里使用登录接口
 
                 //直接在main中用gettext避免使用字符串获取输入再调用方法
             }
         });
         OutButtons.addActionListener(new ActionListener (){
             public void actionPerformed(ActionEvent e ) {
+
 
                 //这里使用注册接口
             }
@@ -68,9 +81,18 @@ public class LoginGUI {
         frame.setSize(400, 150);
         frame.setLocation(300, 200);
         frame.add(Login);
-        frame.setVisible(true);
+
 
 
 
     }
+    public void watchOpen(){
+        frame.setVisible(true);
+    }
+    public void watchoff(){
+        frame.setVisible(false);
+
+    }
+
+
 }
