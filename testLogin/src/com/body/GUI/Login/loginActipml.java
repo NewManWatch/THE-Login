@@ -8,26 +8,43 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class loginActipml implements clientAct{
-    static JFrame frame;
+    JFrame frame = new JFrame("登录页面");
+    JButton LoginButtons = new JButton("登入");
+    JButton OutButtons = new JButton("注册");
+    private clientAct useRegisterWINDOW;
 
-    @Override
-    public void state() {
+    public JFrame getFrame() {
+        return frame;
+    }
+    public JButton getBoolean(String ButtonID ){
+        return null;
+    }//通过getboolean 在逻辑类中添加需要的监听
+    public JButton findBoolean(String ButtonID){
 
+        if (ButtonID.equals("REGISTER")){
+
+            return OutButtons;
+        }else if (ButtonID.equals("BREAK")){
+            return LoginButtons;
+        }else{
+            return null;
+        }
     }
 
     @Override
-    public void action(){
+    public void action(final clientAct useRegisterWINDOW){
+        this.useRegisterWINDOW = useRegisterWINDOW;
 
-        frame = new JFrame("登录页面");/* 实例化窗体对象*/
+        //frame = new JFrame("登录页面");/* 实例化窗体对象*/
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel Login = new JPanel();
         final JTextField jPasswordField1 = new JTextField(30);
         final JPasswordField jPasswordField2 = new JPasswordField();
         jPasswordField2.setEchoChar('*');
         frame.setLayout(null);
-        JButton LoginButtons = new JButton("登入");
+      //  JButton LoginButtons = new JButton("登入");
         LoginButtons.setBounds(10, 70,90 ,30 );
-        JButton OutButtons = new JButton("注册");
+    //    JButton OutButtons = new JButton("注册");
         OutButtons.setBounds(100, 70,90 ,30 );
         Login.add(OutButtons);
         Monitor m = new Monitor() {
@@ -55,8 +72,11 @@ public class loginActipml implements clientAct{
                 //直接在main中用gettext避免使用字符串获取输入再调用方法
             }
         });
+
         OutButtons.addActionListener(new ActionListener (){
             public void actionPerformed(ActionEvent e ) {
+                 useRegisterWINDOW.action();
+                 frame.setVisible(false);
 
 
                 //这里使用注册接口
@@ -86,13 +106,11 @@ public class loginActipml implements clientAct{
 
 
     }
-    public void watchOpen(){
-        frame.setVisible(true);
-    }
-    public void watchoff(){
-        frame.setVisible(false);
+
+
+    @Override
+    public void watch(boolean now) {
+        frame.setVisible(now);
 
     }
-
-
 }
