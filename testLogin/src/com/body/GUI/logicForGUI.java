@@ -13,11 +13,8 @@ public class logicForGUI {
        // client two = new client();
         final clientAct testRE    = one.getShape("REGISTER");//注册窗口不可见
         final clientAct testLogin = one.getShape("LOGIN");
-        testLogin.action(testRE);//让登入窗口可以控制注册窗口实例
+        testLogin.action();
 
-
-        testRE.action(testLogin);
-        testRE.watch(true);
 
 
 

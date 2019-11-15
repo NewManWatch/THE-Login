@@ -1,7 +1,7 @@
 package com.body.GUI.Login;
 import com.body.GUI.*;
 import com.body.loin.userInFo;
-
+import com.body.GUI.register.registerActipml;
 import javax.management.monitor.Monitor;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,30 +11,9 @@ public class loginActipml implements clientAct{
     JFrame frame = new JFrame("登录页面");
     JButton LoginButtons = new JButton("登入");
     JButton OutButtons = new JButton("注册");
-    private clientAct useRegisterWINDOW;
-
-    public JFrame getFrame() {
-        return frame;
-    }
-    public JButton getBoolean(String ButtonID ){
-        return null;
-    }//通过getboolean 在逻辑类中添加需要的监听
-    public JButton findBoolean(String ButtonID){
-
-        if (ButtonID.equals("REGISTER")){
-
-            return OutButtons;
-        }else if (ButtonID.equals("BREAK")){
-            return LoginButtons;
-        }else{
-            return null;
-        }
-    }
-
+    client useRegisterWINDOW = new client();
     @Override
-    public void action(final clientAct useRegisterWINDOW){
-        this.useRegisterWINDOW = useRegisterWINDOW;
-
+    public void action(){
         //frame = new JFrame("登录页面");/* 实例化窗体对象*/
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel Login = new JPanel();
@@ -47,6 +26,9 @@ public class loginActipml implements clientAct{
     //    JButton OutButtons = new JButton("注册");
         OutButtons.setBounds(100, 70,90 ,30 );
         Login.add(OutButtons);
+
+
+
         Monitor m = new Monitor() {
             @Override
             public void start() {
@@ -75,8 +57,9 @@ public class loginActipml implements clientAct{
 
         OutButtons.addActionListener(new ActionListener (){
             public void actionPerformed(ActionEvent e ) {
-                 useRegisterWINDOW.action();
-                 frame.setVisible(false);
+                 useRegisterWINDOW.getShape("REGISTER").action();
+                 frame.dispose();
+
 
 
                 //这里使用注册接口
