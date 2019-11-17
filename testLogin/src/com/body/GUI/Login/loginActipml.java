@@ -47,8 +47,9 @@ public class loginActipml implements clientAct{
                 System.out.print(jPasswordField2.getPassword());
 
                 userInFo nouser = new userInFo(jPasswordField1.getText(),String.valueOf(jPasswordField2.getPassword()));
-                if ()
+              //  if ()
                 useRegisterWINDOW.getShape("MENU").action();
+                frame.dispose();
 
 
                 //测试对name PASSWORK 的读取

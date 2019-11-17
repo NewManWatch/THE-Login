@@ -10,7 +10,7 @@ public interface dateInFa {
 
     public void deleteUser (userInFo user);
 
-    public void
+    //public void
 
 
 }
