@@ -2,6 +2,8 @@ package com.body.GUI.Login;
 import com.body.GUI.*;
 import com.body.loin.userInFo;
 import com.body.GUI.register.registerActipml;
+import com.body.util.data.Login.LoginVerifier;
+
 import javax.management.monitor.Monitor;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,50 +28,52 @@ public class loginActipml implements clientAct{
     //    JButton OutButtons = new JButton("注册");
         OutButtons.setBounds(100, 70,90 ,30 );
         Login.add(OutButtons);
-
-
-
         Monitor m = new Monitor() {
             @Override
             public void start() {
-
             }
-
             @Override
             public void stop() {
-
             }
         };
         LoginButtons.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e ) {
-
                 System.out.print(jPasswordField1.getText());
                 System.out.print(jPasswordField2.getPassword());
-
                 userInFo nouser = new userInFo(jPasswordField1.getText(),String.valueOf(jPasswordField2.getPassword()));
-              //  if ()
-                useRegisterWINDOW.getShape("MENU").action();
+              //  if
+
+                LoginVerifier loginVerifier = new LoginVerifier();
+                loginVerifier.Verifier(nouser);
                 frame.dispose();
-
-
                 //测试对name PASSWORK 的读取
+
                 //这里使用登录接口
 
                 //直接在main中用gettext避免使用字符串获取输入再调用方法
             }
         });
-
         OutButtons.addActionListener(new ActionListener (){
             public void actionPerformed(ActionEvent e ) {
                  useRegisterWINDOW.getShape("REGISTER").action();
                  frame.dispose();
+                //这里使用注册接口
+            }
+        }
+        );
+
+        class A implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                useRegisterWINDOW.getShape("REGISTER").action();
+                frame.dispose();
 
 
 
                 //这里使用注册接口
-            }
-        });
 
+            }
+        }
         frame.setVisible(true);
         Login.add(LoginButtons);
         JLabel label1 = new JLabel("用户账号");
@@ -88,10 +92,6 @@ public class loginActipml implements clientAct{
         frame.setSize(400, 150);
         frame.setLocation(300, 200);
         frame.add(Login);
-
-
-
-
     }
 
 

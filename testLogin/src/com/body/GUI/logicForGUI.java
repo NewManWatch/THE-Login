@@ -10,19 +10,10 @@ public class logicForGUI {
 
 
         final client one = new client();
-       // client two = new client();
-        final clientAct testRE    = one.getShape("REGISTER");//注册窗口不可见
+        // client two = new client();
+        //final clientAct testRE    = one.getShape("REGISTER");
         final clientAct testLogin = one.getShape("LOGIN");
         testLogin.action();
-
-
-
-
-
-
     }
-
-
-
 
 }
